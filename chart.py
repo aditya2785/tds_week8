@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-sns.set_style("whitegrid")
-sns.set_context("talk")
+# Force seaborn theme
+sns.set_theme(style="white")
 
 np.random.seed(42)
 
@@ -17,21 +17,23 @@ data = {
 }
 
 df = pd.DataFrame(data)
-corr_matrix = df.corr()
+corr = df.corr()
 
-# CRITICAL SETTINGS FOR 512x512
 plt.figure(figsize=(8, 8))
 
-sns.heatmap(
-    corr_matrix,
+# EXPLICIT seaborn heatmap
+ax = sns.heatmap(
+    corr,
     annot=True,
+    fmt=".2f",
     cmap="coolwarm",
-    linewidths=0.5,
-    square=True
+    linewidths=1,
+    square=True,
+    cbar=True
 )
 
-plt.title("Customer Engagement Correlation Matrix", fontsize=16, fontweight="bold")
+plt.title("Customer Engagement Correlation Matrix", fontsize=16)
 
-# IMPORTANT: No bbox_inches
+# EXACT 512x512 export
 plt.savefig("chart.png", dpi=64)
 plt.close()
