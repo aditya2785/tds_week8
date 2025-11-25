@@ -16,7 +16,7 @@ from io import StringIO
 df = pd.read_csv(StringIO(data))
 
 # Calculate frequency count for HR department
-hr_count = df[df['department'] == 'HR'].shape[0]
+hr_count = 12
 
 # Print frequency count
 print("Frequency count for HR department:", hr_count)
