@@ -1,8 +1,7 @@
----
 marp: true
-theme: default
+theme: custom-theme
 paginate: true
----
+
 
 
 <!-- Custom theme definition -->
